@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
+import FoodElement from './FoodElement';
+
 const FoodList = () => {
   const [foodList, setFoodList] = useState();
 
@@ -16,7 +18,11 @@ const FoodList = () => {
   return (
     <div>
       <h1>Jestem listą jedzenia</h1>
-      {foodList ? foodList.map((x) => <p>{x.name}</p>) : ''}
+      {foodList
+        ? foodList.map((x) => (
+            <FoodElement key={x.id} name={x.name} price={x.price} />
+          ))
+        : ''}
     </div>
   );
 };
