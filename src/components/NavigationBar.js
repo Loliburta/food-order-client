@@ -17,7 +17,7 @@ const NavigationBar = () => {
 };
 
 const StyledHeader = styled.header`
-  background: #deb887;
+  background: white;
   min-height: 10vh;
   display: flex;
   align-items: center;
