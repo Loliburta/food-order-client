@@ -17,10 +17,16 @@ const FoodList = () => {
   }, []);
   return (
     <div>
-      <h1>Jestem listą jedzenia</h1>
+      <h1>Menu: </h1>
       {foodList
-        ? foodList.map((x) => (
-            <FoodElement key={x.id} name={x.name} price={x.price} />
+        ? foodList.map((element) => (
+            <FoodElement
+              key={element.id}
+              name={element.name}
+              price={element.price}
+              description={element.description}
+              calories={element.calories}
+            />
           ))
         : ''}
     </div>
