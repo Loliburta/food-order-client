@@ -13,6 +13,7 @@ const FoodElement = ({ name, price, description, calories }) => {
 };
 
 const StyledFoodBox = styled.div`
+  //flex-basis: 15rem;
   min-height: 15rem;
   width: 15rem;
   margin: 2rem;
