@@ -1,27 +1,32 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
 
 import FoodElement from './FoodElement';
+import { getMenu } from '../store/menu-slice';
 
 const FoodList = () => {
-  const [foodList, setFoodList] = useState();
+  const dispatch = useDispatch();
+  const menu = useSelector((state) => state.menu.list);
 
-  const getFood = async () => {
-    const resp = await axios.get('http://127.0.0.1:8000/api/');
-    setFoodList(resp.data);
-    //console.log(resp.data);
-  };
+  //const getFood = async () => {
+
+  //const resp = await axios.get('http://127.0.0.1:8000/api/');
+  //setFoodList(resp.data);
+  //console.log(resp.data);
+  //console.log(resp.data);
+  //};
 
   useEffect(() => {
-    getFood();
-  }, []);
+    dispatch(getMenu());
+  }, [dispatch]);
+
   return (
     <StyledFoodContainer>
       <h1>Menu: </h1>
       <StyledFoodList>
-        {foodList
-          ? foodList.map((element) => (
+        {menu
+          ? menu.map((element) => (
               <FoodElement
                 key={element.id}
                 name={element.name}
