@@ -17,7 +17,7 @@ const CartBox = () => {
         />
       ))}
       <hr />
-      <p>Wartość koszyka: {cartData.totalPrice} zł</p>
+      <p>Do zapłaty: {cartData.totalPrice} zł</p>
       <p>Przedmioty w koszyku: {cartData.totalQuantity}</p>
     </div>
   );
