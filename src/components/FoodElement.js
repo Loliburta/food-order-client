@@ -1,13 +1,30 @@
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '../store/cart-slice';
 
-const FoodElement = ({ name, price, description, calories }) => {
+const FoodElement = ({ element }) => {
+  const dispatch = useDispatch();
+
   return (
     <StyledFoodBox>
-      <h3>{name}</h3>
+      <h3>{element.name}</h3>
       <hr />
-      <p>{description}</p>
-      <p>kcal: {calories}</p>
-      <p>Cena: {price} zł</p>
+      <p>{element.description}</p>
+      <p>kcal: {element.calories}</p>
+      <p>Cena: {element.price} zł</p>
+      <button
+        onClick={() =>
+          dispatch(
+            addItemToCart({
+              id: element.id,
+              name: element.name,
+              price: element.price,
+            })
+          )
+        }
+      >
+        Dodaj do koszyka
+      </button>
     </StyledFoodBox>
   );
 };

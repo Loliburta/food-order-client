@@ -27,13 +27,7 @@ const FoodList = () => {
       <StyledFoodList>
         {menu
           ? menu.map((element) => (
-              <FoodElement
-                key={element.id}
-                name={element.name}
-                price={element.price}
-                description={element.description}
-                calories={element.calories}
-              />
+              <FoodElement key={element.id} element={element} />
             ))
           : ''}
       </StyledFoodList>
