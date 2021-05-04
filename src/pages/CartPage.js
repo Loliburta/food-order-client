@@ -3,7 +3,6 @@ const CartPage = () => {
   return (
     <>
       <CartBox />
-      cart page
     </>
   );
 };
