@@ -19,17 +19,15 @@ const cartSlice = createSlice({
           quantity: 1,
           totalPrice: newItem.price,
         });
-        console.log('dodano do koszyka');
       } else {
         existingItem.quantity += 1;
         existingItem.totalPrice = existingItem.totalPrice + newItem.price;
-        console.log('else dodano do koszyka');
       }
       state.totalQuantity += 1;
       state.totalPrice += newItem.price;
     },
     removeItemFromCart(state, action) {
-      const id = action.payload;
+      const id = action.payload.id;
       const existingItem = state.items.find((item) => item.id === id);
       if (existingItem.quantity === 1) {
         state.items = state.items.filter((item) => item.id !== id);
