@@ -2,6 +2,7 @@ import { Route, Switch } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import OrderPage from './pages/OrderPage';
 import CartPage from './pages/CartPage';
+import LoginPage from './pages/LoginPage';
 import NavigationBar from './components/NavigationBar';
 import GlobalStyle from './GlobalStyle';
 function App() {
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path='/koszyk'>
           <CartPage />
+        </Route>
+        <Route path='/logowanie'>
+          <LoginPage />
         </Route>
       </Switch>
     </div>
