@@ -14,6 +14,7 @@ const LoginBox = () => {
       email: email,
       password: password,
     });
+    localStorage.setItem('authToken', response.data.key);
     console.log(response);
     console.log(response.data.key);
     setEmail('');
