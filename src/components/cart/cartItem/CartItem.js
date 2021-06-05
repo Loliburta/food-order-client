@@ -1,44 +1,41 @@
-import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
-import { addItemToCart, removeItemFromCart } from '../store/cart-slice';
+import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { addItemToCart, removeItemFromCart } from "../../../store/cart-slice";
 
 const CartItem = ({ id, name, price, quantity, totalPrice }) => {
   const dispatch = useDispatch();
+  const increase = () => {
+    dispatch(
+      addItemToCart({
+        id,
+        name,
+        price,
+      })
+    );
+  };
+  const decrease = () => {
+    dispatch(
+      removeItemFromCart({
+        id: id,
+      })
+    );
+  };
+
   return (
     <StyledCartItem>
-      <div className='info'>
+      <div className="info">
         <h3>{name}</h3>
         <p>za sztukę: {price} zł</p>
       </div>
-      <div className='quantity'>
-        <button
-          className='increase'
-          onClick={() =>
-            dispatch(
-              addItemToCart({
-                id,
-                name,
-                price,
-              })
-            )
-          }
-        >
+      <div className="quantity">
+        <button className="increase" onClick={increase}>
           +
         </button>
-        <div className='quantity-info'>
+        <div className="quantity-info">
           <p>ilość: {quantity}</p>
           <p>cena: {totalPrice} zł</p>
         </div>
-        <button
-          className='decrease'
-          onClick={() =>
-            dispatch(
-              removeItemFromCart({
-                id: id,
-              })
-            )
-          }
-        >
+        <button className="decrease" onClick={decrease}>
           -
         </button>
       </div>

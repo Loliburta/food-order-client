@@ -1,4 +1,4 @@
-import FoodList from '../components/FoodList';
+import FoodList from "../components/foodList/FoodList";
 
 const OrderPage = () => {
   return (

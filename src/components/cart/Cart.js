@@ -1,12 +1,12 @@
-import { useSelector } from 'react-redux';
-import CartItem from './CartItem';
-import styled from 'styled-components';
+import { useSelector } from "react-redux";
+import CartItem from "./cartItem/CartItem";
+import styled from "styled-components";
 
-const CartBox = () => {
+const Cart = () => {
   const cartData = useSelector((state) => state.cart);
   const items = cartData.items;
   return (
-    <StyledCartBox>
+    <StyledCart>
       <h1>Koszyk: </h1>
       {items.map((item) => (
         <CartItem
@@ -21,13 +21,13 @@ const CartBox = () => {
       <hr />
       <p>Do zapłaty: {cartData.totalPrice} zł</p>
       <p>Przedmioty w koszyku: {cartData.totalQuantity}</p>
-    </StyledCartBox>
+    </StyledCart>
   );
 };
 
-const StyledCartBox = styled.div`
+const StyledCart = styled.div`
   background: #f4f4f4;
   padding: 2rem;
 `;
 
-export default CartBox;
+export default Cart;

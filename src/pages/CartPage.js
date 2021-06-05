@@ -1,8 +1,8 @@
-import CartBox from '../components/CartBox';
+import Cart from "../components/cart/Cart";
 const CartPage = () => {
   return (
     <>
-      <CartBox />
+      <Cart />
     </>
   );
 };
